@@ -15,6 +15,12 @@ const colorPalette = {
 		dark: "#1e3d6b",
 		contrastText: "#ffffff",
 	},
+	error: {
+		main: "#d32f2f",
+		light: "#ef5350",
+		dark: "#c62828",
+		contrastText: "#ffffff",
+	},
 	accent: {
 		main: "#4a90e2",
 		light: "#6ba8f0",
@@ -33,6 +39,7 @@ export const themeOptions: ThemeOptions = {
 		mode: "light",
 		primary: colorPalette.primary,
 		secondary: colorPalette.secondary,
+		error: colorPalette.error,
 		background: {
 			default: "#f5f7fa",
 			paper: "#ffffff",
