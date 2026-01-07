@@ -1,14 +1,12 @@
 'use client';
 
-import { CardContent, CardActions, Button, Typography, alpha, SxProps, Theme } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import Link from 'next/link';
+import { CardContent, CardActions, Typography, alpha, SxProps, Theme } from '@mui/material';
 import { StyledCard } from '@/components/atoms/StyledCard/StyledCard';
 import { CardIconWrapper } from '@/components/atoms/CardIconWrapper/CardIconWrapper';
 import { GradientOverlay } from '@/components/atoms/GradientOverlay/GradientOverlay';
+import { ThemedButton } from '@/components/atoms/ThemedButton/ThemedButton';
 import React, { ReactElement } from 'react';
 import { colorPalette } from '@/config/theme';
-import { getButtonStyles } from './buttonStyles';
 
 interface HomeCardProps {
   title: string;
@@ -29,8 +27,7 @@ export const HomeCard = ({
   iconColor,
   href,
 }: HomeCardProps) => {
-  const theme = useTheme();
-  const color = iconColor === 'primary' ? theme.palette.primary : theme.palette.secondary;
+  const color = iconColor === 'primary' ? colorPalette.primary : colorPalette.secondary;
 
   const iconWithColor = React.isValidElement(icon)
     ? React.cloneElement(icon as React.ReactElement<{ sx?: SxProps<Theme> }>, {
@@ -76,15 +73,14 @@ export const HomeCard = ({
         </Typography>
       </CardContent>
       <CardActions sx={{ p: 3, pt: 0, justifyContent: 'center' }}>
-        <Button 
-          component={Link}
+        <ThemedButton 
           href={href}
           variant={buttonVariant}
+          iconColor={iconColor}
           size="large"
-          sx={getButtonStyles(buttonVariant, iconColor, color)}
         >
           {buttonText}
-        </Button>
+        </ThemedButton>
       </CardActions>
     </StyledCard>
   );

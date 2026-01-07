@@ -6,6 +6,7 @@ import { useCreateTicketMutation } from "@/store/api/ticketsApi";
 import { ticketFormSchema, TicketFormData } from "@/schemas/ticketSchema";
 import { TICKET_FORM_DEFAULT_VALUES } from "@/constants/ticketConstants";
 import { CreateTicketDto } from "@/types/ticket";
+import { ensureMinimumDelay } from "@/utils/delay";
 
 /**
  * Hook personalizado para manejar la lógica del formulario de tickets
@@ -33,9 +34,7 @@ export const useTicketForm = () => {
 				archivo: data.archivo,
 			};
 
-			await createTicket(ticketData).unwrap();
-			await new Promise((resolve) => setTimeout(resolve, 800));
-
+			await ensureMinimumDelay(createTicket(ticketData).unwrap(), 500);
 			router.push("/mis-reportes");
 		} catch (error) {
 			console.error("Error al crear ticket:", error);
