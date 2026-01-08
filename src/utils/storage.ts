@@ -2,6 +2,11 @@ import { Ticket } from "@/types/ticket";
 
 const STORAGE_KEY = "tickets";
 
+/**
+ * Servicio de almacenamiento para la aplicación
+ * Principio: Single Responsibility - Solo maneja el almacenamiento de la aplicación
+ * Principio: Open/Closed - Extensible mediante storageService
+ */
 export const storageService = {
 	getTickets: (): Ticket[] => {
 		if (typeof window === "undefined") return [];

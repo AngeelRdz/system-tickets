@@ -4,6 +4,11 @@ import { Box, alpha } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { colorPalette } from '@/config/theme';
 
+/**
+ * Componente atómico de overlay con gradientes
+ * Principio: Single Responsibility - Solo renderiza un overlay con gradientes
+ * Principio: Open/Closed - Extensible mediante BoxProps
+ */
 export const GradientOverlay = styled(Box)(() => ({
   position: 'absolute',
   top: 0,
