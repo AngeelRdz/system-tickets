@@ -4,6 +4,11 @@ import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { colorPalette } from '@/config/theme';
 
+/**
+ * Componente atómico de wrapper para el icono de la tarjeta
+ * Principio: Single Responsibility - Solo renderiza un wrapper para el icono
+ * Principio: Open/Closed - Extensible mediante BoxProps
+ */
 export const CardIconWrapper = styled(Box)(() => ({
   width: 80,
   height: 80,

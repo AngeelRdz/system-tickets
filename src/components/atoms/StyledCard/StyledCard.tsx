@@ -4,6 +4,11 @@ import { Card } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { colorPalette } from '@/config/theme';
 
+/**
+ * Componente atómico de tarjeta estilizada
+ * Principio: Single Responsibility - Solo renderiza una tarjeta estilizada
+ * Principio: Open/Closed - Extensible mediante CardProps
+ */
 export const StyledCard = styled(Card)(({ theme }) => ({
   height: '100%',
   display: 'flex',

@@ -2,6 +2,11 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Ticket, CreateTicketDto } from "@/types/ticket";
 import { storageService } from "@/utils/storage";
 
+/**
+ * API de tickets
+ * Principio: Single Responsibility - Solo maneja la API de tickets
+ * Principio: Open/Closed - Extensible mediante createApi
+ */
 export const ticketsApi = createApi({
 	reducerPath: "ticketsApi",
 	baseQuery: fetchBaseQuery({ baseUrl: "/api" }),

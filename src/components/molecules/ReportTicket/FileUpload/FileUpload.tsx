@@ -5,6 +5,11 @@ import { Controller, Control, FieldPath, FieldValues } from 'react-hook-form';
 import { Box, Button, Typography, Avatar } from '@mui/material';
 import ImageIcon from '@mui/icons-material/Image';
 
+/**
+ * Componente molecular para manejar el preview de imagen
+ * Principio: Single Responsibility - Solo maneja la carga de archivos
+ * Principio: Open/Closed - Extensible mediante FileUploadProps
+ */
 interface FileUploadProps<T extends FieldValues> {
 	name: FieldPath<T>;
 	control: Control<T>;

@@ -1,6 +1,11 @@
 import { Chip } from '@mui/material';
 import { TicketPriority } from '@/types/ticket';
 
+/**
+ * Componente atómico de badge para la prioridad del ticket
+ * Principio: Single Responsibility - Solo renderiza un badge para la prioridad
+ * Principio: Open/Closed - Extensible mediante ChipProps
+ */
 interface PriorityBadgeProps {
   priority: TicketPriority;
 }

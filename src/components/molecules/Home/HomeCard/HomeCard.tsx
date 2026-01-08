@@ -8,6 +8,11 @@ import { ThemedButton } from '@/components/atoms/ThemedButton/ThemedButton';
 import React, { ReactElement } from 'react';
 import { colorPalette } from '@/config/theme';
 
+/**
+ * Componente molecular de tarjeta de inicio
+ * Principio: Single Responsibility - Solo renderiza una tarjeta de inicio
+ * Principio: Open/Closed - Extensible mediante HomeCardProps
+ */
 interface HomeCardProps {
   title: string;
   description: string;

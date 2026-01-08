@@ -3,6 +3,11 @@
 import { Typography, Box } from '@mui/material';
 import { colorPalette } from '@/config/theme';
 
+/**
+ * Componente orgánico de encabezado de la página de inicio
+ * Principio: Single Responsibility - Solo renderiza el encabezado de la página de inicio
+ * Principio: Open/Closed - Extensible mediante BoxProps
+ */
 export const HomeHeader = () => {
   return (
     <Box sx={{ mb: { xs: 4, md: 6 }, textAlign: 'center' }}>

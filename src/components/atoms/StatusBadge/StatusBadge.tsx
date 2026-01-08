@@ -1,6 +1,11 @@
 import { Chip } from '@mui/material';
 import { TicketStatus } from '@/types/ticket';
 
+/**
+ * Componente atómico de badge para el estado del ticket
+ * Principio: Single Responsibility - Solo renderiza un badge para el estado
+ * Principio: Open/Closed - Extensible mediante ChipProps
+ */
 interface StatusBadgeProps {
   status: TicketStatus;
 }
