@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
 	useGetTicketByIdQuery,
 	useDeleteTicketMutation,
 	useUpdateTicketMutation,
 } from "@/store/api/ticketsApi";
-import { TicketStatus } from "@/types/ticket";
+import { TicketStatus, Ticket } from "@/types/ticket";
 import { ensureMinimumDelay } from "@/utils/delay";
 
 /**
@@ -20,15 +20,29 @@ export const useTicketDetail = (ticketId: string) => {
 	const [updateTicket] = useUpdateTicketMutation();
 	const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 	const [isDeleting, setIsDeleting] = useState(false);
+	const [savedTicket, setSavedTicket] = useState<Ticket | null>(null);
+
+	useEffect(() => {
+		if (ticket && !isDeleting) {
+			setSavedTicket(ticket);
+		}
+	}, [ticket, isDeleting]);
 
 	const handleDeleteClick = () => {
+		if (ticket) {
+			setSavedTicket(ticket);
+		}
 		setDeleteDialogOpen(true);
+		setIsDeleting(false);
 	};
 
 	const handleDeleteConfirm = async () => {
 		setIsDeleting(true);
 		try {
 			await ensureMinimumDelay(deleteTicket(ticketId).unwrap(), 500);
+			setDeleteDialogOpen(false);
+			setIsDeleting(false);
+			setSavedTicket(null);
 			router.push("/mis-reportes");
 		} catch (error) {
 			console.error("Error al eliminar ticket:", error);
@@ -39,6 +53,7 @@ export const useTicketDetail = (ticketId: string) => {
 	const handleDeleteCancel = () => {
 		if (!isDeleting) {
 			setDeleteDialogOpen(false);
+			setIsDeleting(false);
 		}
 	};
 
@@ -53,10 +68,12 @@ export const useTicketDetail = (ticketId: string) => {
 		}
 	};
 
+	const displayTicket = isDeleting && savedTicket ? savedTicket : ticket;
+
 	return {
-		ticket,
+		ticket: displayTicket,
 		isLoading,
-		isError,
+		isError: isDeleting ? false : isError,
 		deleteDialogOpen,
 		isDeleting,
 		handleDeleteClick,
