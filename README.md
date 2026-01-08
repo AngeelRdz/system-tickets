@@ -209,16 +209,13 @@ npm run dev          # Inicia el servidor de desarrollo en http://localhost:3000
 # Producción
 npm run build        # Construye la aplicación para producción
 npm run start        # Inicia el servidor de producción
-
-# Calidad de código
-npm run lint         # Ejecuta ESLint para verificar el código
 ```
 
 ## 📚 Documentación Adicional
 
 Para información detallada sobre instalación, configuración y uso del proyecto, consulta:
 
-- **[INSTALL.md](./INSTALL.md)** - Guía completa de instalación y configuración
+- [📄 Documentación completa en HackMD](https://hackmd.io/@MgZpyuwoQY6qKQ_HI1Op-w/Doc-AngeelRdz)
 
 ## 🎨 Características de Diseño
 
@@ -243,16 +240,6 @@ Para información detallada sobre instalación, configuración y uso del proyect
 - **Validación**: Todos los formularios usan Zod para validación de esquemas
 - **Formato de Fechas**: Fechas formateadas en español (es-ES) con AM/PM
 - **Imágenes**: Las imágenes se convierten a base64 para almacenamiento
-
-## 🤝 Contribuir
-
-Este es un proyecto de prueba técnica. Si deseas contribuir:
-
-1. Sigue los principios SOLID
-2. Mantén la estructura Atomic Design
-3. Usa TypeScript con tipado estricto
-4. Escribe código limpio y documentado
-5. Mantén la consistencia con el tema existente
 
 ## 📄 Licencia
 
