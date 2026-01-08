@@ -1,9 +1,9 @@
 import { Container, Typography, Box } from '@mui/material';
-import { ReportTicketForm } from '@/components/organisms/ReportTicketForm/ReportTicketForm';
+import { TicketList } from '@/components/organisms/TicketList/TicketList';
 import { ThemedButton } from '@/components/atoms/ThemedButton/ThemedButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-export default function ReportarPage() {
+export default function MisReportesPage() {
   return (
     <Box
       sx={{
@@ -14,7 +14,7 @@ export default function ReportarPage() {
       }}
     >
       <Container
-        maxWidth="sm"
+        maxWidth="lg"
         sx={{
           py: { xs: 4, md: 6 },
           width: '100%',
@@ -31,10 +31,10 @@ export default function ReportarPage() {
             Volver
           </ThemedButton>
           <Typography variant="h4" component="h1" sx={{ fontWeight: 600 }}>
-            Reportar un Problema
+            Mis Reportes
           </Typography>
         </Box>
-        <ReportTicketForm />
+        <TicketList />
       </Container>
     </Box>
   );

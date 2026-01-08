@@ -2,7 +2,7 @@
 
 import { Container, Grid, Box } from '@mui/material';
 import { HomeHeader } from '@/components/organisms/HomeHeader/HomeHeader';
-import { HomeCard } from '@/components/molecules/HomeCard/HomeCard';
+import { HomeCard } from '@/components/molecules/Home/HomeCard/HomeCard';
 import { HOME_CARDS_CONFIG } from '@/config/homeCards';
 
 export default function Home() {

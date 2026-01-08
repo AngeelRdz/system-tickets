@@ -1,11 +1,12 @@
 'use client';
 
-import { Box, Button, Paper, Alert, CircularProgress, Typography } from '@mui/material';
+import { Box, Paper, Alert, CircularProgress, Typography } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import { useTicketForm } from '@/hooks/useTicketForm';
-import { FormField } from '@/components/molecules/FormField/FormField';
-import { PrioritySelect } from '@/components/molecules/PrioritySelect/PrioritySelect';
-import { FileUpload } from '@/components/molecules/FileUpload/FileUpload';
+import { FormField } from '@/components/molecules/ReportTicket/FormField/FormField';
+import { PrioritySelect } from '@/components/molecules/ReportTicket/PrioritySelect/PrioritySelect';
+import { FileUpload } from '@/components/molecules/ReportTicket/FileUpload/FileUpload';
+import { ThemedButton } from '@/components/atoms/ThemedButton/ThemedButton';
 import { TicketFormData } from '@/schemas/ticketSchema';
 
 /**
@@ -88,34 +89,36 @@ export const ReportTicketForm = () => {
 							mt: 2,
 						}}
 					>
-						<Button
+						<ThemedButton
 							variant="outlined"
+							iconColor="primary"
 							onClick={() => router.push('/')}
 							disabled={isLoading}
-							sx={{ minWidth: 120 }}
+							customSx={{ minWidth: 120 }}
 						>
 							Cancelar
-						</Button>
-						<Button
+						</ThemedButton>
+						<ThemedButton
 							type="submit"
 							variant="contained"
+							iconColor="primary"
 							disabled={isLoading}
-							sx={{ minWidth: 160 }}
+							customSx={{ minWidth: 160 }}
 							startIcon={
 								isLoading ? (
-									<CircularProgress size={20} sx={{ color: 'white' }} />
+									<CircularProgress size={20} sx={{ color: 'common.white' }} />
 								) : null
 							}
 						>
 							<Typography
 								component="span"
 								sx={{
-									color: isLoading ? 'white' : 'inherit',
+									color: isLoading ? 'common.white' : 'inherit',
 								}}
 							>
 								{isLoading ? 'Creando ticket...' : 'Crear Ticket'}
 							</Typography>
-						</Button>
+						</ThemedButton>
 					</Box>
 				</Box>
 			</form>
