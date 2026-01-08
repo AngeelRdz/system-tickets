@@ -61,7 +61,11 @@ export const TicketDetail = ({ ticketId }: TicketDetailProps) => {
 				onClose={handleDeleteCancel}
 				onConfirm={handleDeleteConfirm}
 				isLoading={isDeleting}
-				message="¿Estás seguro de que deseas eliminar este ticket? Esta acción no se puede deshacer."
+				message={
+					ticket?.asunto
+						? `¿Estás seguro de que deseas eliminar el ticket "${ticket.asunto}"? Esta acción no se puede deshacer.`
+						: "¿Estás seguro de que deseas eliminar este ticket? Esta acción no se puede deshacer."
+				}
 			/>
 		</>
 	);
